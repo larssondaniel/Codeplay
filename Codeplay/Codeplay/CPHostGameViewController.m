@@ -35,6 +35,11 @@
     [self.view bringSubviewToFront:self.buttonsView];
     [self startAnimation];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveDataWithNotification:)
+                                                 name:@"MCDidReceiveDataNotification"
+                                               object:nil];
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated{
