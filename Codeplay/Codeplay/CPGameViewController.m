@@ -25,9 +25,10 @@
 {
     [super viewDidLoad];
     
-    self.progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(0.0f, 248.0f, 320.0f, 320.0f)];
+    self.progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(0.0f, 20.0f, 320.0f, 220.0f)];
     self.progressView.trackTintColor = [UIColor clearColor];
     self.progressView.progressTintColor = [UIColor darkGrayColor];
+    self.progressView.alpha = 0.15f;
     self.progressView.thicknessRatio = 1.0f;
     self.progressView.clockwiseProgress = YES;
     [self.view addSubview:self.progressView];
@@ -57,7 +58,44 @@
                                                   target:self
                                                 selector:@selector(progressChange)
                                                 userInfo:nil
-                                                 repeats:NO];
+                                                 repeats:YES];
+}
+- (IBAction)choseFirstAnswer {
+    [self sendAnswer:@"1"];
+    [self disableAnswerButtons];
+}
+- (IBAction)choseSecondAnswer {
+    [self sendAnswer:@"2"];
+    [self disableAnswerButtons];
+}
+- (IBAction)choseThirdAnswer {
+    [self sendAnswer:@"3"];
+    [self disableAnswerButtons];
+}
+- (IBAction)choseFourthAnswer {
+    [self sendAnswer:@"4"];
+    [self disableAnswerButtons];
+}
+
+- (IBAction)sendAnswer:(NSString *)answerIndex {
+    NSData *dataToSend = [answerIndex dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *allPeers = _appDelegate.mcManager.session.connectedPeers;
+    NSError *error;
+    
+    [_appDelegate.mcManager.session sendData:dataToSend
+                                     toPeers:allPeers
+                                    withMode:MCSessionSendDataReliable
+                                       error:&error];
+    
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+}
+
+- (void)disableAnswerButtons {
+    for (UIButton *button in self.buttonsView.subviews) {
+        button.enabled = NO;
+    }
 }
 
 @end

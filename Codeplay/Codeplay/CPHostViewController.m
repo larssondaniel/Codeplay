@@ -8,6 +8,7 @@
 
 #import "CPHostViewController.h"
 #import "CPAppDelegate.h"
+#import "CPPlayer.h"
 
 @interface CPHostViewController ()
 
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) UIWindow *secondWindow;
 @property (nonatomic, strong) NSMutableArray *arrConnectedDevices;
 @property (strong, nonatomic) IBOutlet UITableView *tblConnectedDevices;
+@property (strong, nonatomic) NSMutableArray *players;
 
 @end
 
@@ -59,18 +61,8 @@
         view.backgroundColor = [UIColor blueColor];
         [self.secondWindow addSubview:view];
         
-        
-        
         self.secondWindow.hidden = NO;
     }
-    
-    
-    
-    NSLog(@"HELLLLOOOO");
-    
-}
-- (IBAction)test:(id)sender {
-    NSLog(@"Master press");
 }
 
 -(void)peerDidChangeStateWithNotification:(NSNotification *)notification{
@@ -95,6 +87,7 @@
     // BOOL peersExist = ([[_appDelegate.mcManager.session connectedPeers] count] == 0);
     // [_txtName setEnabled:peersExist];
 }
+
 - (IBAction)enterGame {
     NSData *dataToSend = [@"enter_game" dataUsingEncoding:NSUTF8StringEncoding];
     NSArray *allPeers = _appDelegate.mcManager.session.connectedPeers;
@@ -108,6 +101,30 @@
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
     }
+    
+    for (MCPeerID *peer in allPeers) {
+        [self.players addObject:[[CPPlayer alloc] initWithName:peer.displayName]];
+    }
+}
+
+-(void)didReceiveDataWithNotification:(NSNotification *)notification{
+    MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
+    NSString *peerDisplayName = peerID.displayName;
+    
+    NSData *receivedData = [[notification userInfo] objectForKey:@"data"];
+    NSString *receivedText = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+    
+    if ([receivedData isEqual: @"enter_game"]) {
+        NSLog(@"Entering game with %@", peerDisplayName);
+        [self performSegueWithIdentifier:@"Enter_game" sender:self];
+    } else {
+        // Data is an answer
+        NSLog(@"%@ answered %@", peerDisplayName, receivedText);
+        
+    }
+    //NSString *receivedText = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+    
+    //[_tvChat performSelectorOnMainThread:@selector(setText:) withObject:[_tvChat.text stringByAppendingString:[NSString stringWithFormat:@"%@ wrote:\n%@\n\n", peerDisplayName, receivedText]] waitUntilDone:NO];
 }
 
 #pragma tableView
