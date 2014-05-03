@@ -37,23 +37,13 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    
-    NSLog(@"GOT CALLED");
-    NSLog(@"CONNECTED USERS: %i", [[[[_appDelegate mcManager] session ] connectedPeers] count] );
-    
     [[[_appDelegate mcManager]session] disconnect];
     [[_appDelegate mcManager] advertiseSelf:false];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)progressChange
 {
-    CGFloat progress = ![self.timer isValid] ? self.progressView.progress : self.progressView.progress + 0.01f;
+    CGFloat progress = ![self.timer isValid] ? self.progressView.progress : self.progressView.progress + 0.005f;
     [self.progressView setProgress:progress animated:YES];
         
     if (self.progressView.progress >= 1.0f && [self.timer isValid]) {
@@ -63,11 +53,11 @@
 
 - (void)startAnimation
 {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.03
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.01
                                                   target:self
                                                 selector:@selector(progressChange)
                                                 userInfo:nil
-                                                 repeats:YES];
+                                                 repeats:NO];
 }
 
 @end
