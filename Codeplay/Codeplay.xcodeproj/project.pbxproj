@@ -26,6 +26,8 @@
 		6BE5F5ED1914D9A900AE9D3E /* CPHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5E81914D9A900AE9D3E /* CPHostViewController.m */; };
 		6BE5F5EE1914D9A900AE9D3E /* CPMCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5EA1914D9A900AE9D3E /* CPMCManager.m */; };
 		6BE5F5F01914DA0000AE9D3E /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE5F5EF1914DA0000AE9D3E /* MultipeerConnectivity.framework */; };
+		C44AEA621914DE3D00C5B789 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44AEA611914DE3D00C5B789 /* Spotify.framework */; };
+		C44AEA651914DEA600C5B789 /* CPSpotifyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C44AEA641914DEA600C5B789 /* CPSpotifyManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,9 @@
 		6BE5F5E91914D9A900AE9D3E /* CPMCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPMCManager.h; sourceTree = "<group>"; };
 		6BE5F5EA1914D9A900AE9D3E /* CPMCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPMCManager.m; sourceTree = "<group>"; };
 		6BE5F5EF1914DA0000AE9D3E /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		C44AEA611914DE3D00C5B789 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = Frameworks/Spotify.framework; sourceTree = "<group>"; };
+		C44AEA631914DEA600C5B789 /* CPSpotifyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSpotifyManager.h; sourceTree = "<group>"; };
+		C44AEA641914DEA600C5B789 /* CPSpotifyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSpotifyManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44AEA621914DE3D00C5B789 /* Spotify.framework in Frameworks */,
 				6BE5F5F01914DA0000AE9D3E /* MultipeerConnectivity.framework in Frameworks */,
 				6BE5F5B11914D90D00AE9D3E /* CoreGraphics.framework in Frameworks */,
 				6BE5F5B31914D90D00AE9D3E /* UIKit.framework in Frameworks */,
@@ -116,6 +122,7 @@
 		6BE5F5AD1914D90D00AE9D3E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C44AEA611914DE3D00C5B789 /* Spotify.framework */,
 				6BE5F5EF1914DA0000AE9D3E /* MultipeerConnectivity.framework */,
 				6BE5F5AE1914D90D00AE9D3E /* Foundation.framework */,
 				6BE5F5B01914D90D00AE9D3E /* CoreGraphics.framework */,
@@ -141,6 +148,8 @@
 				6BE5F5C01914D90D00AE9D3E /* Main.storyboard */,
 				6BE5F5C31914D90D00AE9D3E /* CPViewController.h */,
 				6BE5F5C41914D90D00AE9D3E /* CPViewController.m */,
+				C44AEA631914DEA600C5B789 /* CPSpotifyManager.h */,
+				C44AEA641914DEA600C5B789 /* CPSpotifyManager.m */,
 				6BE5F5C61914D90D00AE9D3E /* Images.xcassets */,
 				6BE5F5B51914D90D00AE9D3E /* Supporting Files */,
 			);
@@ -224,6 +233,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Codeplay;
 				TargetAttributes = {
+					6BE5F5AA1914D90D00AE9D3E = {
+						DevelopmentTeam = WWV9AMNH82;
+					};
 					6BE5F5CB1914D90E00AE9D3E = {
 						TestTargetID = 6BE5F5AA1914D90D00AE9D3E;
 					};
@@ -275,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BE5F5BB1914D90D00AE9D3E /* main.m in Sources */,
+				C44AEA651914DEA600C5B789 /* CPSpotifyManager.m in Sources */,
 				6BE5F5EE1914D9A900AE9D3E /* CPMCManager.m in Sources */,
 				6BE5F5EC1914D9A900AE9D3E /* CPGameViewController.m in Sources */,
 				6BE5F5EB1914D9A900AE9D3E /* CPControllerViewController.m in Sources */,
@@ -405,9 +418,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Codeplay/Codeplay-Prefix.pch";
 				INFOPLIST_FILE = "Codeplay/Codeplay-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -418,9 +437,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Codeplay/Codeplay-Prefix.pch";
 				INFOPLIST_FILE = "Codeplay/Codeplay-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -485,6 +510,7 @@
 				6BE5F5DF1914D90E00AE9D3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6BE5F5E01914D90E00AE9D3E /* Build configuration list for PBXNativeTarget "CodeplayTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +519,7 @@
 				6BE5F5E21914D90E00AE9D3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
