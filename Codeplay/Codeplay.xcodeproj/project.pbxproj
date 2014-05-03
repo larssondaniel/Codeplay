@@ -33,6 +33,7 @@
 		C44AEA621914DE3D00C5B789 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44AEA611914DE3D00C5B789 /* Spotify.framework */; };
 		C44AEA651914DEA600C5B789 /* CPSpotifyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C44AEA641914DEA600C5B789 /* CPSpotifyManager.m */; };
 		C44AEA671914E8FA00C5B789 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44AEA661914E8FA00C5B789 /* AVFoundation.framework */; };
+		C4F06EEE191520690088E997 /* CPGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F06EED191520690088E997 /* CPGameManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		C44AEA631914DEA600C5B789 /* CPSpotifyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSpotifyManager.h; sourceTree = "<group>"; };
 		C44AEA641914DEA600C5B789 /* CPSpotifyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSpotifyManager.m; sourceTree = "<group>"; };
 		C44AEA661914E8FA00C5B789 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C4F06EEC191520690088E997 /* CPGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPGameManager.h; sourceTree = "<group>"; };
+		C4F06EED191520690088E997 /* CPGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPGameManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +174,8 @@
 				6BE5F5C41914D90D00AE9D3E /* CPViewController.m */,
 				C44AEA631914DEA600C5B789 /* CPSpotifyManager.h */,
 				C44AEA641914DEA600C5B789 /* CPSpotifyManager.m */,
+				C4F06EEC191520690088E997 /* CPGameManager.h */,
+				C4F06EED191520690088E997 /* CPGameManager.m */,
 				6BE5F5C61914D90D00AE9D3E /* Images.xcassets */,
 				6BE5F5B51914D90D00AE9D3E /* Supporting Files */,
 			);
@@ -267,7 +272,7 @@
 				ORGANIZATIONNAME = Codeplay;
 				TargetAttributes = {
 					6BE5F5AA1914D90D00AE9D3E = {
-						DevelopmentTeam = 85JQFL47E9;
+						DevelopmentTeam = WWV9AMNH82;
 					};
 					6BE5F5CB1914D90E00AE9D3E = {
 						TestTargetID = 6BE5F5AA1914D90D00AE9D3E;
@@ -322,6 +327,7 @@
 				6BE5F5BB1914D90D00AE9D3E /* main.m in Sources */,
 				6BE5F5FA1915082100AE9D3E /* CPPlayer.m in Sources */,
 				C44AEA651914DEA600C5B789 /* CPSpotifyManager.m in Sources */,
+				C4F06EEE191520690088E997 /* CPGameManager.m in Sources */,
 				6BE5F5FD1915109D00AE9D3E /* CPHostGameViewController.m in Sources */,
 				6BE5F5EE1914D9A900AE9D3E /* CPMCManager.m in Sources */,
 				6BE5F5EC1914D9A900AE9D3E /* CPGameViewController.m in Sources */,

@@ -14,5 +14,9 @@
 
 -(void)enableAudioPlaybackWithSession:(SPTSession *)session;
 
+-(void)playTrackFromSpotify:(NSString *)spotifyUri;
+
+-(void)stopPlayingTrack;
+
 
 @end

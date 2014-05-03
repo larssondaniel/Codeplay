@@ -12,7 +12,7 @@
 
 @interface CPSpotifyManager () <SPTTrackPlayerDelegate>
 
-    @property (nonatomic, strong) SPTTrackPlayer *trackPlayer;
+    @property (nonatomic, strong) SPTAudioStreamingController *trackPlayer;
     @property (nonatomic, strong) SPTSession *userSession;
 
 @end
@@ -62,12 +62,12 @@
     
 	if (self.trackPlayer == nil) {
         
-		self.trackPlayer = [[SPTTrackPlayer alloc] initWithCompanyName:@"Spotify"
+		self.trackPlayer = [[SPTAudioStreamingController alloc] initWithCompanyName:@"Spotify"
 															   appName:@"SimplePlayer"];
-		self.trackPlayer.delegate = self;
+		//self.trackPlayer.delegate = self;
 	}
     
-	[self.trackPlayer enablePlaybackWithSession:session callback:^(NSError *error) {
+	[self.trackPlayer loginWithSession:session callback:^(NSError *error) {
         
 		if (error != nil) {
 			NSLog(@"*** Enabling playback got error: %@", error);
@@ -84,20 +84,17 @@
 -(void)playTrackFromSpotify:(NSString *)spotifyUri{
     
     // @"spotify:album:2mCuMNdJkoyiXFhsQCLLqw" - Rick
+
+    [self.trackPlayer playURI:[NSURL URLWithString:spotifyUri] callback:nil];
     
-    [SPTRequest requestItemAtURI:[NSURL URLWithString:spotifyUri]
-                     withSession:nil
-                        callback:^(NSError *error, id object) {
-                            
-                            if (error != nil) {
-                                NSLog(@"*** Album lookup got error %@", error);
-                                return;
-                            }
-                            
-                            [self.trackPlayer playTrackProvider:(id <SPTTrackProvider>)object];
-                            
-                        }];
-    
+}
+
+-(void)stopPlayingTrack{
+    [self.trackPlayer setIsPlaying:false callback:nil];
+}
+
+-(SPTErrorableOperationCallback) nilfunc{
+    return nil;
 }
 
 
