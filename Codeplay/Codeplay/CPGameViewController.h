@@ -1,14 +1,14 @@
 //
-//  CPViewController.h
+//  CPGameViewController.h
 //  CodePlay
 //
-//  Created by Chris Nordqvist on 2014-05-02.
+//  Created by Daniel Larsson on 2014-05-03.
 //  Copyright (c) 2014 CodePlay Interactive. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 
-@interface CPViewController : UIViewController <MCBrowserViewControllerDelegate>
+@interface CPGameViewController : UIViewController <MCBrowserViewControllerDelegate>
 
 @end

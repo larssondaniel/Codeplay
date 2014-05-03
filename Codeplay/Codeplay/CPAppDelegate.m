@@ -1,9 +1,9 @@
 //
 //  CPAppDelegate.m
-//  Codeplay
+//  CodePlay
 //
-//  Created by Daniel Larsson on 2014-05-03.
-//  Copyright (c) 2014 Codeplay. All rights reserved.
+//  Created by Chris Nordqvist on 2014-05-02.
+//  Copyright (c) 2014 CodePlay Interactive. All rights reserved.
 //
 
 #import "CPAppDelegate.h"
@@ -13,6 +13,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    //Launch Multipeer manager
+    _mcManager = [[CPMCManager alloc] init];
+    [_mcManager setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
+    
     return YES;
 }
 							

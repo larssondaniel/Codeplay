@@ -21,6 +21,11 @@
 		6BE5F5D01914D90E00AE9D3E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE5F5B21914D90D00AE9D3E /* UIKit.framework */; };
 		6BE5F5D81914D90E00AE9D3E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BE5F5D61914D90E00AE9D3E /* InfoPlist.strings */; };
 		6BE5F5DA1914D90E00AE9D3E /* CodeplayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5D91914D90E00AE9D3E /* CodeplayTests.m */; };
+		6BE5F5EB1914D9A900AE9D3E /* CPControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5E41914D9A900AE9D3E /* CPControllerViewController.m */; };
+		6BE5F5EC1914D9A900AE9D3E /* CPGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5E61914D9A900AE9D3E /* CPGameViewController.m */; };
+		6BE5F5ED1914D9A900AE9D3E /* CPHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5E81914D9A900AE9D3E /* CPHostViewController.m */; };
+		6BE5F5EE1914D9A900AE9D3E /* CPMCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5EA1914D9A900AE9D3E /* CPMCManager.m */; };
+		6BE5F5F01914DA0000AE9D3E /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE5F5EF1914DA0000AE9D3E /* MultipeerConnectivity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,15 @@
 		6BE5F5D51914D90E00AE9D3E /* CodeplayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CodeplayTests-Info.plist"; sourceTree = "<group>"; };
 		6BE5F5D71914D90E00AE9D3E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6BE5F5D91914D90E00AE9D3E /* CodeplayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeplayTests.m; sourceTree = "<group>"; };
+		6BE5F5E31914D9A900AE9D3E /* CPControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPControllerViewController.h; sourceTree = "<group>"; };
+		6BE5F5E41914D9A900AE9D3E /* CPControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPControllerViewController.m; sourceTree = "<group>"; };
+		6BE5F5E51914D9A900AE9D3E /* CPGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPGameViewController.h; sourceTree = "<group>"; };
+		6BE5F5E61914D9A900AE9D3E /* CPGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPGameViewController.m; sourceTree = "<group>"; };
+		6BE5F5E71914D9A900AE9D3E /* CPHostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPHostViewController.h; sourceTree = "<group>"; };
+		6BE5F5E81914D9A900AE9D3E /* CPHostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPHostViewController.m; sourceTree = "<group>"; };
+		6BE5F5E91914D9A900AE9D3E /* CPMCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPMCManager.h; sourceTree = "<group>"; };
+		6BE5F5EA1914D9A900AE9D3E /* CPMCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPMCManager.m; sourceTree = "<group>"; };
+		6BE5F5EF1914DA0000AE9D3E /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BE5F5F01914DA0000AE9D3E /* MultipeerConnectivity.framework in Frameworks */,
 				6BE5F5B11914D90D00AE9D3E /* CoreGraphics.framework in Frameworks */,
 				6BE5F5B31914D90D00AE9D3E /* UIKit.framework in Frameworks */,
 				6BE5F5AF1914D90D00AE9D3E /* Foundation.framework in Frameworks */,
@@ -101,6 +116,7 @@
 		6BE5F5AD1914D90D00AE9D3E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6BE5F5EF1914DA0000AE9D3E /* MultipeerConnectivity.framework */,
 				6BE5F5AE1914D90D00AE9D3E /* Foundation.framework */,
 				6BE5F5B01914D90D00AE9D3E /* CoreGraphics.framework */,
 				6BE5F5B21914D90D00AE9D3E /* UIKit.framework */,
@@ -112,6 +128,14 @@
 		6BE5F5B41914D90D00AE9D3E /* Codeplay */ = {
 			isa = PBXGroup;
 			children = (
+				6BE5F5E31914D9A900AE9D3E /* CPControllerViewController.h */,
+				6BE5F5E41914D9A900AE9D3E /* CPControllerViewController.m */,
+				6BE5F5E51914D9A900AE9D3E /* CPGameViewController.h */,
+				6BE5F5E61914D9A900AE9D3E /* CPGameViewController.m */,
+				6BE5F5E71914D9A900AE9D3E /* CPHostViewController.h */,
+				6BE5F5E81914D9A900AE9D3E /* CPHostViewController.m */,
+				6BE5F5E91914D9A900AE9D3E /* CPMCManager.h */,
+				6BE5F5EA1914D9A900AE9D3E /* CPMCManager.m */,
 				6BE5F5BD1914D90D00AE9D3E /* CPAppDelegate.h */,
 				6BE5F5BE1914D90D00AE9D3E /* CPAppDelegate.m */,
 				6BE5F5C01914D90D00AE9D3E /* Main.storyboard */,
@@ -251,6 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BE5F5BB1914D90D00AE9D3E /* main.m in Sources */,
+				6BE5F5EE1914D9A900AE9D3E /* CPMCManager.m in Sources */,
+				6BE5F5EC1914D9A900AE9D3E /* CPGameViewController.m in Sources */,
+				6BE5F5EB1914D9A900AE9D3E /* CPControllerViewController.m in Sources */,
+				6BE5F5ED1914D9A900AE9D3E /* CPHostViewController.m in Sources */,
 				6BE5F5BF1914D90D00AE9D3E /* CPAppDelegate.m in Sources */,
 				6BE5F5C51914D90D00AE9D3E /* CPViewController.m in Sources */,
 			);
