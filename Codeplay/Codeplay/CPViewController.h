@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 
-@interface CPViewController : UIViewController <MCBrowserViewControllerDelegate>
+@interface CPViewController : UIViewController
 
 @end

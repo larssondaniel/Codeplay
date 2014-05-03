@@ -64,9 +64,13 @@
 
 
 -(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID{
+    NSDictionary *dict = @{@"data": data,
+                           @"peerID": peerID
+                           };
     
-    NSLog([[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MCDidReceiveDataNotification"
+                                                        object:nil
+                                                      userInfo:dict];
 }
 
 

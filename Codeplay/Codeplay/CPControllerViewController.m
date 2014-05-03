@@ -37,6 +37,11 @@
                                              selector:@selector(peerDidChangeStateWithNotification:)
                                                  name:@"MCDidChangeStateNotification"
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveDataWithNotification:)
+                                                 name:@"MCDidReceiveDataNotification"
+                                               object:nil];
 
     [self presentViewController:[[_appDelegate mcManager] browser] animated:YES completion:nil];
 }
@@ -73,6 +78,21 @@
 
 -(void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController{
     [_appDelegate.mcManager.browser dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)didReceiveDataWithNotification:(NSNotification *)notification{
+    MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
+    NSString *peerDisplayName = peerID.displayName;
+    
+    NSData *receivedData = [[notification userInfo] objectForKey:@"data"];
+    
+    if ([receivedData isEqual: @"enter_game"]) {
+        NSLog(@"Entering game with %@", peerDisplayName);
+        [self performSegueWithIdentifier:@"Enter_game" sender:self];
+    }
+    //NSString *receivedText = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+    
+    //[_tvChat performSelectorOnMainThread:@selector(setText:) withObject:[_tvChat.text stringByAppendingString:[NSString stringWithFormat:@"%@ wrote:\n%@\n\n", peerDisplayName, receivedText]] waitUntilDone:NO];
 }
 
 @end

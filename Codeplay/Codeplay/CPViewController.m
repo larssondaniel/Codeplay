@@ -20,14 +20,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    
-    NSLog(@"GOT CALLED");
-    NSLog(@"CONNECTED USERS: %i", [[[[_appDelegate mcManager] session ] connectedPeers] count] );
-    
     [[[_appDelegate mcManager]session] disconnect];
     [[_appDelegate mcManager] advertiseSelf:false];
 }

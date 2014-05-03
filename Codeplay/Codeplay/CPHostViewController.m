@@ -95,6 +95,22 @@
     // BOOL peersExist = ([[_appDelegate.mcManager.session connectedPeers] count] == 0);
     // [_txtName setEnabled:peersExist];
 }
+- (IBAction)enterGame {
+    NSData *dataToSend = [@"enter_game" dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *allPeers = _appDelegate.mcManager.session.connectedPeers;
+    NSError *error;
+    
+    [_appDelegate.mcManager.session sendData:dataToSend
+                                     toPeers:allPeers
+                                    withMode:MCSessionSendDataReliable
+                                       error:&error];
+    
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+}
+
+#pragma tableView
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
