@@ -257,7 +257,7 @@
 				ORGANIZATIONNAME = Codeplay;
 				TargetAttributes = {
 					6BE5F5AA1914D90D00AE9D3E = {
-						DevelopmentTeam = 85JQFL47E9;
+						DevelopmentTeam = WWV9AMNH82;
 					};
 					6BE5F5CB1914D90E00AE9D3E = {
 						TestTargetID = 6BE5F5AA1914D90D00AE9D3E;
