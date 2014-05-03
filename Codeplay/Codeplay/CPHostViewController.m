@@ -11,8 +11,12 @@
 
 @interface CPHostViewController ()
 
+-(void)peerDidChangeStateWithNotification:(NSNotification *)notification;
+
 @property (nonatomic, strong) CPAppDelegate *appDelegate;
 @property (strong, nonatomic) UIWindow *secondWindow;
+@property (nonatomic, strong) NSMutableArray *arrConnectedDevices;
+@property (strong, nonatomic) IBOutlet UITableView *tblConnectedDevices;
 
 @end
 
@@ -26,6 +30,18 @@
     _appDelegate = (CPAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     [[_appDelegate mcManager] advertiseSelf:true];
+    
+    _arrConnectedDevices = [[NSMutableArray alloc] init];
+
+    _tblConnectedDevices.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 10.0f)];
+    _tblConnectedDevices.tintColor = [UIColor clearColor];
+    [_tblConnectedDevices setDelegate:self];
+    [_tblConnectedDevices setDataSource:self];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(peerDidChangeStateWithNotification:)
+                                                 name:@"MCDidChangeStateNotification"
+                                               object:nil];
     
     
     if ([[UIScreen screens] count] > 1)
@@ -55,6 +71,56 @@
 }
 - (IBAction)test:(id)sender {
     NSLog(@"Master press");
+}
+
+-(void)peerDidChangeStateWithNotification:(NSNotification *)notification{
+    MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
+    NSString *peerDisplayName = peerID.displayName;
+    MCSessionState state = [[[notification userInfo] objectForKey:@"state"] intValue];
+    
+    if (state != MCSessionStateConnecting) {
+        if (state == MCSessionStateConnected) {
+            [_arrConnectedDevices addObject:peerDisplayName];
+        }
+        
+        else if (state == MCSessionStateNotConnected){
+            if ([_arrConnectedDevices count] > 0) {
+                int indexOfPeer = [_arrConnectedDevices indexOfObject:peerDisplayName];
+                [_arrConnectedDevices removeObjectAtIndex:indexOfPeer];
+            }
+        }
+    }
+    [_tblConnectedDevices reloadData];
+    
+    // BOOL peersExist = ([[_appDelegate.mcManager.session connectedPeers] count] == 0);
+    // [_txtName setEnabled:peersExist];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [_arrConnectedDevices count];
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier"];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellIdentifier"];
+    }
+    
+    cell.textLabel.text = [_arrConnectedDevices objectAtIndex:indexPath.row];
+    
+    return cell;
+}
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60.0;
 }
 
 @end

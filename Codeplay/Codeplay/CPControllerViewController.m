@@ -12,8 +12,9 @@
 
 @interface CPControllerViewController ()
 
+-(void)peerDidChangeStateWithNotification:(NSNotification *)notification;
+
 @property (nonatomic, strong) CPAppDelegate *appDelegate;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -31,7 +32,12 @@
     [[_appDelegate mcManager] advertiseSelf:YES];
     
     [[[_appDelegate mcManager] browser] setDelegate:self];
-    NSLog(@"THIS HAPPENED");
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(peerDidChangeStateWithNotification:)
+                                                 name:@"MCDidChangeStateNotification"
+                                               object:nil];
+
     [self presentViewController:[[_appDelegate mcManager] browser] animated:YES completion:nil];
 }
 
