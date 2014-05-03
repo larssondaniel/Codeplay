@@ -7,7 +7,7 @@
 //
 
 #import "CPAppDelegate.h"
-
+#import <RestKit/RestKit.h>
 
 
 @implementation CPAppDelegate

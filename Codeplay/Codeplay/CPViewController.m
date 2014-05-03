@@ -8,6 +8,7 @@
 
 #import "CPViewController.h"
 #import "CPAppDelegate.h"
+#import "CPQuestionManager.h"
 
 @interface CPViewController ()
 
@@ -24,6 +25,8 @@
     [[_appDelegate mcManager] setupMCBrowser];
     [[_appDelegate mcManager] setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
     //[[_appDelegate mcManager] advertiseSelf:YES];
+    
+    [[CPQuestionManager sharedManager] doStuff];
     
     [super viewDidLoad];
 }

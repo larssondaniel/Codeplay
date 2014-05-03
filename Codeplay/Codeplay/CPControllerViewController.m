@@ -15,37 +15,42 @@
 -(void)peerDidChangeStateWithNotification:(NSNotification *)notification;
 
 @property (nonatomic, strong) CPAppDelegate *appDelegate;
+@property (nonatomic) BOOL *isFirstTime;
 
 @end
 
 @implementation CPControllerViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    /*
-    _appDelegate = (CPAppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    [[_appDelegate mcManager] setupMCBrowser];
-    [[_appDelegate mcManager] setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
-    //[[_appDelegate mcManager] advertiseSelf:YES];
-     */
-    
-    [[[_appDelegate mcManager] browser] setDelegate:self];
+    self.isFirstTime = YES;
+}
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (self.isFirstTime) {
+        _appDelegate = (CPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+        [[_appDelegate mcManager] setupMCBrowser];
+        [[_appDelegate mcManager] setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
+        [[_appDelegate mcManager] advertiseSelf:YES];
+    
+        [[[_appDelegate mcManager] browser] setDelegate:self];
+    
+        [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(peerDidChangeStateWithNotification:)
                                                  name:@"MCDidChangeStateNotification"
                                                object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
+        [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didReceiveDataWithNotification:)
                                                  name:@"MCDidReceiveDataNotification"
                                                object:nil];
-
-    [self presentViewController:[[_appDelegate mcManager] browser] animated:YES completion:nil];
+    
+        [self presentViewController:[[_appDelegate mcManager] browser] animated:YES completion:nil];
+    }
+    self.isFirstTime = NO;
 }
 
 - (IBAction)Saysomething:(id)sender {
