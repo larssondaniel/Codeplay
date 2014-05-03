@@ -8,28 +8,32 @@
 
 #import "CPGameViewController.h"
 #import "CPAppDelegate.h"
+#import "DACircularProgressView.h"
 
 @interface CPGameViewController ()
 
 @property (nonatomic, strong) CPAppDelegate *appDelegate;
+@property (strong, nonatomic) NSTimer *timer;
+@property (strong, nonatomic) DACircularProgressView *progressView;
+@property (strong, nonatomic) IBOutlet UIView *buttonsView;
 
 @end
 
 @implementation CPGameViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(0.0f, 248.0f, 320.0f, 320.0f)];
+    self.progressView.trackTintColor = [UIColor clearColor];
+    self.progressView.progressTintColor = [UIColor darkGrayColor];
+    self.progressView.thicknessRatio = 1.0f;
+    self.progressView.clockwiseProgress = YES;
+    [self.view addSubview:self.progressView];
+    [self.view bringSubviewToFront:self.buttonsView];
+    [self startAnimation];
+
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -47,15 +51,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)progressChange
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    CGFloat progress = ![self.timer isValid] ? self.progressView.progress : self.progressView.progress + 0.01f;
+    [self.progressView setProgress:progress animated:YES];
+        
+    if (self.progressView.progress >= 1.0f && [self.timer isValid]) {
+        [self.progressView setProgress:0.f animated:YES];
+    }
 }
-*/
+
+- (void)startAnimation
+{
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.03
+                                                  target:self
+                                                selector:@selector(progressChange)
+                                                userInfo:nil
+                                                 repeats:YES];
+}
 
 @end

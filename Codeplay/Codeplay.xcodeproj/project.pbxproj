@@ -26,6 +26,8 @@
 		6BE5F5ED1914D9A900AE9D3E /* CPHostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5E81914D9A900AE9D3E /* CPHostViewController.m */; };
 		6BE5F5EE1914D9A900AE9D3E /* CPMCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5EA1914D9A900AE9D3E /* CPMCManager.m */; };
 		6BE5F5F01914DA0000AE9D3E /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE5F5EF1914DA0000AE9D3E /* MultipeerConnectivity.framework */; };
+		6BE5F5F61914F5B100AE9D3E /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5F31914F5B100AE9D3E /* DACircularProgressView.m */; };
+		6BE5F5F71914F5B100AE9D3E /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5F51914F5B100AE9D3E /* DALabeledCircularProgressView.m */; };
 		C44AEA621914DE3D00C5B789 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44AEA611914DE3D00C5B789 /* Spotify.framework */; };
 		C44AEA651914DEA600C5B789 /* CPSpotifyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C44AEA641914DEA600C5B789 /* CPSpotifyManager.m */; };
 		C44AEA671914E8FA00C5B789 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44AEA661914E8FA00C5B789 /* AVFoundation.framework */; };
@@ -70,6 +72,10 @@
 		6BE5F5E91914D9A900AE9D3E /* CPMCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPMCManager.h; sourceTree = "<group>"; };
 		6BE5F5EA1914D9A900AE9D3E /* CPMCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPMCManager.m; sourceTree = "<group>"; };
 		6BE5F5EF1914DA0000AE9D3E /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		6BE5F5F21914F5B100AE9D3E /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
+		6BE5F5F31914F5B100AE9D3E /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
+		6BE5F5F41914F5B100AE9D3E /* DALabeledCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DALabeledCircularProgressView.h; sourceTree = "<group>"; };
+		6BE5F5F51914F5B100AE9D3E /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DALabeledCircularProgressView.m; sourceTree = "<group>"; };
 		C44AEA611914DE3D00C5B789 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = Frameworks/Spotify.framework; sourceTree = "<group>"; };
 		C44AEA631914DEA600C5B789 /* CPSpotifyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSpotifyManager.h; sourceTree = "<group>"; };
 		C44AEA641914DEA600C5B789 /* CPSpotifyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSpotifyManager.m; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 		6BE5F5AD1914D90D00AE9D3E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6BE5F5F11914F5B100AE9D3E /* DACircularProgress */,
 				C44AEA661914E8FA00C5B789 /* AVFoundation.framework */,
 				C44AEA611914DE3D00C5B789 /* Spotify.framework */,
 				6BE5F5EF1914DA0000AE9D3E /* MultipeerConnectivity.framework */,
@@ -187,6 +194,18 @@
 				6BE5F5D61914D90E00AE9D3E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6BE5F5F11914F5B100AE9D3E /* DACircularProgress */ = {
+			isa = PBXGroup;
+			children = (
+				6BE5F5F21914F5B100AE9D3E /* DACircularProgressView.h */,
+				6BE5F5F31914F5B100AE9D3E /* DACircularProgressView.m */,
+				6BE5F5F41914F5B100AE9D3E /* DALabeledCircularProgressView.h */,
+				6BE5F5F51914F5B100AE9D3E /* DALabeledCircularProgressView.m */,
+			);
+			name = DACircularProgress;
+			path = Frameworks/DACircularProgress;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,10 +313,12 @@
 				C44AEA651914DEA600C5B789 /* CPSpotifyManager.m in Sources */,
 				6BE5F5EE1914D9A900AE9D3E /* CPMCManager.m in Sources */,
 				6BE5F5EC1914D9A900AE9D3E /* CPGameViewController.m in Sources */,
+				6BE5F5F61914F5B100AE9D3E /* DACircularProgressView.m in Sources */,
 				6BE5F5EB1914D9A900AE9D3E /* CPControllerViewController.m in Sources */,
 				6BE5F5ED1914D9A900AE9D3E /* CPHostViewController.m in Sources */,
 				6BE5F5BF1914D90D00AE9D3E /* CPAppDelegate.m in Sources */,
 				6BE5F5C51914D90D00AE9D3E /* CPViewController.m in Sources */,
+				6BE5F5F71914F5B100AE9D3E /* DALabeledCircularProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

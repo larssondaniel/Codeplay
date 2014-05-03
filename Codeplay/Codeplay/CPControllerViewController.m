@@ -29,7 +29,7 @@
     
     [[_appDelegate mcManager] setupMCBrowser];
     [[_appDelegate mcManager] setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
-    [[_appDelegate mcManager] advertiseSelf:YES];
+    //[[_appDelegate mcManager] advertiseSelf:YES];
     
     [[[_appDelegate mcManager] browser] setDelegate:self];
 
