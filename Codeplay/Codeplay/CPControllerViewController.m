@@ -13,19 +13,11 @@
 @interface CPControllerViewController ()
 
 @property (nonatomic, strong) CPAppDelegate *appDelegate;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation CPControllerViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -35,15 +27,14 @@
     _appDelegate = (CPAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     [[_appDelegate mcManager] setupMCBrowser];
+    [[_appDelegate mcManager] setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
+    [[_appDelegate mcManager] advertiseSelf:YES];
+    
     [[[_appDelegate mcManager] browser] setDelegate:self];
+    NSLog(@"THIS HAPPENED");
     [self presentViewController:[[_appDelegate mcManager] browser] animated:YES completion:nil];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (IBAction)Saysomething:(id)sender {
     
     NSLog(@"Button Pressed");
