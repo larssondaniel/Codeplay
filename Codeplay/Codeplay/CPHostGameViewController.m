@@ -25,6 +25,15 @@
 {
     [super viewDidLoad];
     
+    //_appDelegate = (CPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    //[[_appDelegate mcManager] setupMCBrowser];
+    //[[_appDelegate mcManager] setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
+    //[[_appDelegate mcManager] advertiseSelf:YES];
+    
+    //[[[_appDelegate mcManager] browser] setDelegate:self];
+
+    
     self.progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(0.0f, 20.0f, 320.0f, 220.0f)];
     self.progressView.trackTintColor = [UIColor clearColor];
     self.progressView.progressTintColor = [UIColor darkGrayColor];
@@ -39,12 +48,11 @@
                                              selector:@selector(didReceiveDataWithNotification:)
                                                  name:@"MCDidReceiveDataNotification"
                                                object:nil];
-    
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    [[[_appDelegate mcManager]session] disconnect];
-    [[_appDelegate mcManager] advertiseSelf:false];
+    //[[[_appDelegate mcManager]session] disconnect];
+    //[[_appDelegate mcManager] advertiseSelf:false];
 }
 
 - (void)progressChange
@@ -94,13 +102,13 @@
                                        error:&error];
     
     if (error) {
-        NSLog(@"%@", [error localizedDescription]);
+        NSLog(@"ERROR: %@", [error localizedDescription]);
     }
 }
 
 - (void)disableAnswerButtons {
     for (UIButton *button in self.buttonsView.subviews) {
-        button.enabled = NO;
+        //button.enabled = NO;
     }
 }
 
@@ -122,6 +130,7 @@
         NSLog(@"%@ answered %@", peerDisplayName, receivedText);
         
     }
+
     //NSString *receivedText = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
     
     //[_tvChat performSelectorOnMainThread:@selector(setText:) withObject:[_tvChat.text stringByAppendingString:[NSString stringWithFormat:@"%@ wrote:\n%@\n\n", peerDisplayName, receivedText]] waitUntilDone:NO];

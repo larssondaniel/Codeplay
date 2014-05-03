@@ -19,6 +19,12 @@
 
 - (void)viewDidLoad
 {
+    _appDelegate = (CPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    [[_appDelegate mcManager] setupMCBrowser];
+    [[_appDelegate mcManager] setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
+    //[[_appDelegate mcManager] advertiseSelf:YES];
+    
     [super viewDidLoad];
 }
 

@@ -11,4 +11,6 @@
 
 @interface CPHostGameViewController : UIViewController <MCBrowserViewControllerDelegate>
 
+-(void)didReceiveDataWithNotification:(NSNotification *)notification;
+
 @end

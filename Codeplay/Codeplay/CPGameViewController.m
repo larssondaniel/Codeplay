@@ -38,8 +38,8 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    [[[_appDelegate mcManager]session] disconnect];
-    [[_appDelegate mcManager] advertiseSelf:false];
+    //[[[_appDelegate mcManager]session] disconnect];
+    //[[_appDelegate mcManager] advertiseSelf:false];
 }
 
 - (void)progressChange

@@ -102,9 +102,11 @@
         NSLog(@"%@", [error localizedDescription]);
     }
     
+    /*
     for (MCPeerID *peer in allPeers) {
         [self.players addObject:[[CPPlayer alloc] initWithName:peer.displayName]];
     }
+     */
 }
 
 -(void)didReceiveDataWithNotification:(NSNotification *)notification{
@@ -119,8 +121,8 @@
         [self performSegueWithIdentifier:@"Enter_game" sender:self];
     } else {
         // Data is an answer
-        NSLog(@"%@ answered %@", peerDisplayName, receivedText);
         
+        NSLog(@"%@ answered %@", peerDisplayName, receivedText);
     }
     //NSString *receivedText = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
     

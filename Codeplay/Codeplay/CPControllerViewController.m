@@ -25,11 +25,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    /*
     _appDelegate = (CPAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     [[_appDelegate mcManager] setupMCBrowser];
     [[_appDelegate mcManager] setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
     //[[_appDelegate mcManager] advertiseSelf:YES];
+     */
     
     [[[_appDelegate mcManager] browser] setDelegate:self];
 

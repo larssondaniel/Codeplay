@@ -71,6 +71,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MCDidReceiveDataNotification"
                                                         object:nil
                                                       userInfo:dict];
+    NSLog(@"Received data in app delegate");
 }
 
 
