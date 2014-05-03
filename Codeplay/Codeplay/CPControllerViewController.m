@@ -85,8 +85,10 @@
     NSString *peerDisplayName = peerID.displayName;
     
     NSData *receivedData = [[notification userInfo] objectForKey:@"data"];
-    
-    if ([receivedData isEqual: @"enter_game"]) {
+    NSString *receivedText = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+    NSLog(@"This just happened");
+    NSLog(@"%@", receivedText);
+    if ([receivedText isEqual: @"enter_game"]) {
         NSLog(@"Entering game with %@", peerDisplayName);
         [self performSegueWithIdentifier:@"Enter_game" sender:self];
     }

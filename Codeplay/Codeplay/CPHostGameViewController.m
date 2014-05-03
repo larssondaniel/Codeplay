@@ -1,16 +1,16 @@
 //
-//  CPGameViewController.m
-//  CodePlay
+//  CPHostGameViewController.m
+//  Codeplay
 //
 //  Created by Daniel Larsson on 2014-05-03.
-//  Copyright (c) 2014 CodePlay Interactive. All rights reserved.
+//  Copyright (c) 2014 Codeplay. All rights reserved.
 //
 
-#import "CPGameViewController.h"
+#import "CPHostGameViewController.h"
 #import "CPAppDelegate.h"
 #import "DACircularProgressView.h"
 
-@interface CPGameViewController ()
+@interface CPHostGameViewController ()
 
 @property (nonatomic, strong) CPAppDelegate *appDelegate;
 @property (strong, nonatomic) NSTimer *timer;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation CPGameViewController
+@implementation CPHostGameViewController
 
 - (void)viewDidLoad
 {
@@ -34,7 +34,7 @@
     [self.view addSubview:self.progressView];
     [self.view bringSubviewToFront:self.buttonsView];
     [self startAnimation];
-
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -46,7 +46,7 @@
 {
     CGFloat progress = ![self.timer isValid] ? self.progressView.progress : self.progressView.progress + 0.005f;
     [self.progressView setProgress:progress animated:YES];
-        
+    
     if (self.progressView.progress >= 1.0f && [self.timer isValid]) {
         [self.progressView setProgress:0.f animated:YES];
     }
@@ -97,6 +97,28 @@
     for (UIButton *button in self.buttonsView.subviews) {
         button.enabled = NO;
     }
+}
+
+# pragma host
+
+-(void)didReceiveDataWithNotification:(NSNotification *)notification{
+    MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
+    NSString *peerDisplayName = peerID.displayName;
+    
+    NSData *receivedData = [[notification userInfo] objectForKey:@"data"];
+    NSString *receivedText = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+    
+    if ([receivedData isEqual: @"dunno"]) {
+        NSLog(@"Entering game with %@", peerDisplayName);
+        [self performSegueWithIdentifier:@"Enter_game" sender:self];
+    } else {
+        // Data is an answer
+        NSLog(@"%@ answered %@", peerDisplayName, receivedText);
+        
+    }
+    //NSString *receivedText = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
+    
+    //[_tvChat performSelectorOnMainThread:@selector(setText:) withObject:[_tvChat.text stringByAppendingString:[NSString stringWithFormat:@"%@ wrote:\n%@\n\n", peerDisplayName, receivedText]] waitUntilDone:NO];
 }
 
 @end

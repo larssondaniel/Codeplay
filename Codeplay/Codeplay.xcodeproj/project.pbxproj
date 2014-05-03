@@ -29,6 +29,7 @@
 		6BE5F5F61914F5B100AE9D3E /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5F31914F5B100AE9D3E /* DACircularProgressView.m */; };
 		6BE5F5F71914F5B100AE9D3E /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5F51914F5B100AE9D3E /* DALabeledCircularProgressView.m */; };
 		6BE5F5FA1915082100AE9D3E /* CPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5F91915082100AE9D3E /* CPPlayer.m */; };
+		6BE5F5FD1915109D00AE9D3E /* CPHostGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE5F5FC1915109D00AE9D3E /* CPHostGameViewController.m */; };
 		C44AEA621914DE3D00C5B789 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44AEA611914DE3D00C5B789 /* Spotify.framework */; };
 		C44AEA651914DEA600C5B789 /* CPSpotifyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C44AEA641914DEA600C5B789 /* CPSpotifyManager.m */; };
 		C44AEA671914E8FA00C5B789 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44AEA661914E8FA00C5B789 /* AVFoundation.framework */; };
@@ -79,6 +80,8 @@
 		6BE5F5F51914F5B100AE9D3E /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DALabeledCircularProgressView.m; sourceTree = "<group>"; };
 		6BE5F5F81915082100AE9D3E /* CPPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPPlayer.h; path = Model/CPPlayer.h; sourceTree = "<group>"; };
 		6BE5F5F91915082100AE9D3E /* CPPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CPPlayer.m; path = Model/CPPlayer.m; sourceTree = "<group>"; };
+		6BE5F5FB1915109D00AE9D3E /* CPHostGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPHostGameViewController.h; sourceTree = "<group>"; };
+		6BE5F5FC1915109D00AE9D3E /* CPHostGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPHostGameViewController.m; sourceTree = "<group>"; };
 		C44AEA611914DE3D00C5B789 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = Frameworks/Spotify.framework; sourceTree = "<group>"; };
 		C44AEA631914DEA600C5B789 /* CPSpotifyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSpotifyManager.h; sourceTree = "<group>"; };
 		C44AEA641914DEA600C5B789 /* CPSpotifyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSpotifyManager.m; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				6BE5F5E41914D9A900AE9D3E /* CPControllerViewController.m */,
 				6BE5F5E51914D9A900AE9D3E /* CPGameViewController.h */,
 				6BE5F5E61914D9A900AE9D3E /* CPGameViewController.m */,
+				6BE5F5FB1915109D00AE9D3E /* CPHostGameViewController.h */,
+				6BE5F5FC1915109D00AE9D3E /* CPHostGameViewController.m */,
 				6BE5F5E71914D9A900AE9D3E /* CPHostViewController.h */,
 				6BE5F5E81914D9A900AE9D3E /* CPHostViewController.m */,
 				6BE5F5F81915082100AE9D3E /* CPPlayer.h */,
@@ -317,6 +322,7 @@
 				6BE5F5BB1914D90D00AE9D3E /* main.m in Sources */,
 				6BE5F5FA1915082100AE9D3E /* CPPlayer.m in Sources */,
 				C44AEA651914DEA600C5B789 /* CPSpotifyManager.m in Sources */,
+				6BE5F5FD1915109D00AE9D3E /* CPHostGameViewController.m in Sources */,
 				6BE5F5EE1914D9A900AE9D3E /* CPMCManager.m in Sources */,
 				6BE5F5EC1914D9A900AE9D3E /* CPGameViewController.m in Sources */,
 				6BE5F5F61914F5B100AE9D3E /* DACircularProgressView.m in Sources */,
