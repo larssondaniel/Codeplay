@@ -95,4 +95,25 @@
     //[_tvChat performSelectorOnMainThread:@selector(setText:) withObject:[_tvChat.text stringByAppendingString:[NSString stringWithFormat:@"%@ wrote:\n%@\n\n", peerDisplayName, receivedText]] waitUntilDone:NO];
 }
 
+-(void)peerDidChangeStateWithNotification:(NSNotification *)notification{
+    /*
+    MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
+    NSString *peerDisplayName = peerID.displayName;
+    MCSessionState state = [[[notification userInfo] objectForKey:@"state"] intValue];
+    
+    if (state != MCSessionStateConnecting) {
+        if (state == MCSessionStateConnected) {
+            [_arrConnectedDevices addObject:peerDisplayName];
+        }
+        else if (state == MCSessionStateNotConnected){
+            if ([_arrConnectedDevices count] > 0) {
+                int indexOfPeer = [_arrConnectedDevices indexOfObject:peerDisplayName];
+                [_arrConnectedDevices removeObjectAtIndex:indexOfPeer];
+            }
+        }
+    }
+    */
+    // BOOL peersExist = ([[_appDelegate.mcManager.session connectedPeers] count] == 0);
+}
+
 @end
