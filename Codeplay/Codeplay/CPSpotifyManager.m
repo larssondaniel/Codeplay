@@ -13,6 +13,7 @@
 @interface CPSpotifyManager () <SPTTrackPlayerDelegate>
 
     @property (nonatomic, strong) SPTTrackPlayer *trackPlayer;
+    @property (nonatomic, strong) SPTSession *userSession;
 
 @end
 
@@ -73,22 +74,31 @@
 			return;
 		}
         
-		[SPTRequest requestItemAtURI:[NSURL URLWithString:@"spotify:album:2mCuMNdJkoyiXFhsQCLLqw"]
-						 withSession:nil
-							callback:^(NSError *error, id object) {
-                                
-								if (error != nil) {
-									NSLog(@"*** Album lookup got error %@", error);
-									return;
-								}
-                                
-								[self.trackPlayer playTrackProvider:(id <SPTTrackProvider>)object];
-                                
-							}];
+        _userSession = session;
+        
 	}];
     
 }
 
+
+-(void)playTrackFromSpotify:(NSString *)spotifyUri{
+    
+    // @"spotify:album:2mCuMNdJkoyiXFhsQCLLqw" - Rick
+    
+    [SPTRequest requestItemAtURI:[NSURL URLWithString:spotifyUri]
+                     withSession:nil
+                        callback:^(NSError *error, id object) {
+                            
+                            if (error != nil) {
+                                NSLog(@"*** Album lookup got error %@", error);
+                                return;
+                            }
+                            
+                            [self.trackPlayer playTrackProvider:(id <SPTTrackProvider>)object];
+                            
+                        }];
+    
+}
 
 
 #pragma mark - Track Player Delegates
