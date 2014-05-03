@@ -107,7 +107,8 @@
     
     NSData *receivedData = [[notification userInfo] objectForKey:@"data"];
     NSString *receivedText = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-    
+    NSLog(@"THIS HAPPENED");
+    NSLog(@"%@", receivedText);
     if ([receivedData isEqual: @"dunno"]) {
         NSLog(@"Entering game with %@", peerDisplayName);
         [self performSegueWithIdentifier:@"Enter_game" sender:self];
