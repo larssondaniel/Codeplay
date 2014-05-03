@@ -28,6 +28,7 @@
 		6BE5F5F01914DA0000AE9D3E /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE5F5EF1914DA0000AE9D3E /* MultipeerConnectivity.framework */; };
 		C44AEA621914DE3D00C5B789 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44AEA611914DE3D00C5B789 /* Spotify.framework */; };
 		C44AEA651914DEA600C5B789 /* CPSpotifyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C44AEA641914DEA600C5B789 /* CPSpotifyManager.m */; };
+		C44AEA671914E8FA00C5B789 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44AEA661914E8FA00C5B789 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		C44AEA611914DE3D00C5B789 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = Frameworks/Spotify.framework; sourceTree = "<group>"; };
 		C44AEA631914DEA600C5B789 /* CPSpotifyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSpotifyManager.h; sourceTree = "<group>"; };
 		C44AEA641914DEA600C5B789 /* CPSpotifyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSpotifyManager.m; sourceTree = "<group>"; };
+		C44AEA661914E8FA00C5B789 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44AEA671914E8FA00C5B789 /* AVFoundation.framework in Frameworks */,
 				C44AEA621914DE3D00C5B789 /* Spotify.framework in Frameworks */,
 				6BE5F5F01914DA0000AE9D3E /* MultipeerConnectivity.framework in Frameworks */,
 				6BE5F5B11914D90D00AE9D3E /* CoreGraphics.framework in Frameworks */,
@@ -122,6 +125,7 @@
 		6BE5F5AD1914D90D00AE9D3E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C44AEA661914E8FA00C5B789 /* AVFoundation.framework */,
 				C44AEA611914DE3D00C5B789 /* Spotify.framework */,
 				6BE5F5EF1914DA0000AE9D3E /* MultipeerConnectivity.framework */,
 				6BE5F5AE1914D90D00AE9D3E /* Foundation.framework */,
@@ -428,6 +432,7 @@
 				GCC_PREFIX_HEADER = "Codeplay/Codeplay-Prefix.pch";
 				INFOPLIST_FILE = "Codeplay/Codeplay-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -449,6 +454,7 @@
 				GCC_PREFIX_HEADER = "Codeplay/Codeplay-Prefix.pch";
 				INFOPLIST_FILE = "Codeplay/Codeplay-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

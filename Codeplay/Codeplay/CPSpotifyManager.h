@@ -11,4 +11,8 @@
 
 @interface CPSpotifyManager : NSObject
 
+
+-(void)enableAudioPlaybackWithSession:(SPTSession *)session;
+
+
 @end
